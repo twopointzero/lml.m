@@ -16,6 +16,8 @@
 		3509D15611D279A8001826B9 /* GHUnitTestMain.m in Sources */ = {isa = PBXBuildFile; fileRef = 3509D15511D279A8001826B9 /* GHUnitTestMain.m */; };
 		3509D15711D279DA001826B9 /* liblml.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D2AAC07E0554694100DB518D /* liblml.a */; };
 		3509D17011D27AEA001826B9 /* LMLItemInitTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3509D16F11D27AEA001826B9 /* LMLItemInitTest.m */; };
+		3523491A11D2BDB800BF3C5A /* LMLLibraryInitTest.m in Resources */ = {isa = PBXBuildFile; fileRef = 3523491911D2BDB800BF3C5A /* LMLLibraryInitTest.m */; };
+		3523492311D2BEEE00BF3C5A /* LMLLibraryInitTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3523491911D2BDB800BF3C5A /* LMLLibraryInitTest.m */; };
 		D2AAC088055469A000DB518D /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */; };
 /* End PBXBuildFile section */
 
@@ -24,7 +26,7 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = 0867D690FE84028FC02AAC07 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = D2AAC07D0554694100DB518D /* lml */;
+			remoteGlobalIDString = D2AAC07D0554694100DB518D;
 			remoteInfo = lml;
 		};
 /* End PBXContainerItemProxy section */
@@ -56,6 +58,7 @@
 		3509D05811D2769E001826B9 /* GHUnit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GHUnit.framework; path = Frameworks/GHUnit.framework; sourceTree = "<group>"; };
 		3509D15511D279A8001826B9 /* GHUnitTestMain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHUnitTestMain.m; sourceTree = "<group>"; };
 		3509D16F11D27AEA001826B9 /* LMLItemInitTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMLItemInitTest.m; sourceTree = "<group>"; };
+		3523491911D2BDB800BF3C5A /* LMLLibraryInitTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMLLibraryInitTest.m; sourceTree = "<group>"; };
 		D2AAC07E0554694100DB518D /* liblml.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = liblml.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2F7E8BE07B2D77200F64583 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
@@ -163,6 +166,7 @@
 			children = (
 				3509D15511D279A8001826B9 /* GHUnitTestMain.m */,
 				3509D16F11D27AEA001826B9 /* LMLItemInitTest.m */,
+				3523491911D2BDB800BF3C5A /* LMLLibraryInitTest.m */,
 			);
 			name = Tests;
 			sourceTree = "<group>";
@@ -242,6 +246,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3523491A11D2BDB800BF3C5A /* LMLLibraryInitTest.m in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -252,6 +257,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3523492311D2BEEE00BF3C5A /* LMLLibraryInitTest.m in Sources */,
 				3509D15611D279A8001826B9 /* GHUnitTestMain.m in Sources */,
 				3509D17011D27AEA001826B9 /* LMLItemInitTest.m in Sources */,
 			);

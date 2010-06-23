@@ -10,7 +10,17 @@
 
 
 @interface LMLLibrary : NSObject {
-
+	NSArray *items;
+	NSString *sourceType;
+	NSString *version;
 }
+
+@property (readonly) NSArray *items;
+@property (readonly) NSString *sourceType;
+@property (readonly) NSString *version;
+
+- (id)initWithItems:(NSArray *)someItems
+			version:(NSString *)aVersion
+		 sourceType:(NSString *)aSourceType;
 
 @end
