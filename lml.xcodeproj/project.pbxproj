@@ -11,8 +11,26 @@
 		3509D02911D2739D001826B9 /* LMLLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = 3509D02711D2739C001826B9 /* LMLLibrary.m */; };
 		3509D02C11D273B5001826B9 /* LMLItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 3509D02A11D273B5001826B9 /* LMLItem.h */; };
 		3509D02D11D273B5001826B9 /* LMLItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 3509D02B11D273B5001826B9 /* LMLItem.m */; };
+		3509D05911D2769E001826B9 /* GHUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3509D05811D2769E001826B9 /* GHUnit.framework */; };
+		3509D15211D27915001826B9 /* GHUnit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3509D05811D2769E001826B9 /* GHUnit.framework */; };
+		3509D15611D279A8001826B9 /* GHUnitTestMain.m in Sources */ = {isa = PBXBuildFile; fileRef = 3509D15511D279A8001826B9 /* GHUnitTestMain.m */; };
+		3509D15711D279DA001826B9 /* liblml.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D2AAC07E0554694100DB518D /* liblml.a */; };
+		3509D17011D27AEA001826B9 /* LMLItemTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3509D16F11D27AEA001826B9 /* LMLItemTest.m */; };
 		D2AAC088055469A000DB518D /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		3509D14E11D277C9001826B9 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				3509D15211D27915001826B9 /* GHUnit.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		0867D69BFE84028FC02AAC07 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
@@ -23,11 +41,25 @@
 		3509D02711D2739C001826B9 /* LMLLibrary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMLLibrary.m; sourceTree = "<group>"; };
 		3509D02A11D273B5001826B9 /* LMLItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMLItem.h; sourceTree = "<group>"; };
 		3509D02B11D273B5001826B9 /* LMLItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMLItem.m; sourceTree = "<group>"; };
+		3509D05211D275FD001826B9 /* Tests.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tests.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3509D05411D275FD001826B9 /* Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Tests-Info.plist"; sourceTree = "<group>"; };
+		3509D05811D2769E001826B9 /* GHUnit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GHUnit.framework; path = Frameworks/GHUnit.framework; sourceTree = "<group>"; };
+		3509D15511D279A8001826B9 /* GHUnitTestMain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHUnitTestMain.m; sourceTree = "<group>"; };
+		3509D16F11D27AEA001826B9 /* LMLItemTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMLItemTest.m; sourceTree = "<group>"; };
 		D2AAC07E0554694100DB518D /* liblml.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = liblml.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2F7E8BE07B2D77200F64583 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		3509D05011D275FD001826B9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3509D05911D2769E001826B9 /* GHUnit.framework in Frameworks */,
+				3509D15711D279DA001826B9 /* liblml.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D2AAC07C0554694100DB518D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -43,6 +75,7 @@
 			isa = PBXGroup;
 			children = (
 				D2AAC07E0554694100DB518D /* liblml.a */,
+				3509D05211D275FD001826B9 /* Tests.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -54,6 +87,7 @@
 				32C88DFF0371C24200C91783 /* Other Sources */,
 				0867D69AFE84028FC02AAC07 /* External Frameworks and Libraries */,
 				034768DFFF38A50411DB9C8B /* Products */,
+				3509D05411D275FD001826B9 /* Tests-Info.plist */,
 			);
 			name = "lml-m";
 			sourceTree = "<group>";
@@ -61,6 +95,7 @@
 		0867D69AFE84028FC02AAC07 /* External Frameworks and Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				3509D05811D2769E001826B9 /* GHUnit.framework */,
 				1058C7B0FEA5585E11CA2CBB /* Linked Frameworks */,
 				1058C7B2FEA5585E11CA2CBB /* Other Frameworks */,
 			);
@@ -70,10 +105,8 @@
 		08FB77AEFE84172EC02AAC07 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				3509D02611D2739C001826B9 /* LMLLibrary.h */,
-				3509D02711D2739C001826B9 /* LMLLibrary.m */,
-				3509D02A11D273B5001826B9 /* LMLItem.h */,
-				3509D02B11D273B5001826B9 /* LMLItem.m */,
+				3509D15F11D27A88001826B9 /* LML */,
+				3509D16011D27A92001826B9 /* Tests */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -104,6 +137,26 @@
 			name = "Other Sources";
 			sourceTree = "<group>";
 		};
+		3509D15F11D27A88001826B9 /* LML */ = {
+			isa = PBXGroup;
+			children = (
+				3509D02611D2739C001826B9 /* LMLLibrary.h */,
+				3509D02711D2739C001826B9 /* LMLLibrary.m */,
+				3509D02A11D273B5001826B9 /* LMLItem.h */,
+				3509D02B11D273B5001826B9 /* LMLItem.m */,
+			);
+			name = LML;
+			sourceTree = "<group>";
+		};
+		3509D16011D27A92001826B9 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				3509D15511D279A8001826B9 /* GHUnitTestMain.m */,
+				3509D16F11D27AEA001826B9 /* LMLItemTest.m */,
+			);
+			name = Tests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -119,6 +172,24 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		3509D05111D275FD001826B9 /* Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3509D05711D275FD001826B9 /* Build configuration list for PBXNativeTarget "Tests" */;
+			buildPhases = (
+				3509D14E11D277C9001826B9 /* CopyFiles */,
+				3509D04E11D275FD001826B9 /* Resources */,
+				3509D04F11D275FD001826B9 /* Sources */,
+				3509D05011D275FD001826B9 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Tests;
+			productName = Tests;
+			productReference = 3509D05211D275FD001826B9 /* Tests.app */;
+			productType = "com.apple.product-type.application";
+		};
 		D2AAC07D0554694100DB518D /* lml */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1DEB921E08733DC00010E9CD /* Build configuration list for PBXNativeTarget "lml" */;
@@ -150,11 +221,31 @@
 			projectRoot = "";
 			targets = (
 				D2AAC07D0554694100DB518D /* lml */,
+				3509D05111D275FD001826B9 /* Tests */,
 			);
 		};
 /* End PBXProject section */
 
+/* Begin PBXResourcesBuildPhase section */
+		3509D04E11D275FD001826B9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
+		3509D04F11D275FD001826B9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3509D15611D279A8001826B9 /* GHUnitTestMain.m in Sources */,
+				3509D17011D27AEA001826B9 /* LMLItemTest.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D2AAC07B0554694100DB518D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -207,6 +298,7 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
 				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = NO;
 				SDKROOT = macosx10.5;
@@ -220,8 +312,65 @@
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
 				PREBINDING = NO;
 				SDKROOT = macosx10.5;
+			};
+			name = Release;
+		};
+		3509D05511D275FD001826B9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Frameworks\"",
+				);
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				INFOPLIST_FILE = "Tests-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = Tests;
+			};
+			name = Debug;
+		};
+		3509D05611D275FD001826B9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Frameworks\"",
+				);
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				INFOPLIST_FILE = "Tests-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = Tests;
+				ZERO_LINK = NO;
 			};
 			name = Release;
 		};
@@ -242,6 +391,15 @@
 			buildConfigurations = (
 				1DEB922308733DC00010E9CD /* Debug */,
 				1DEB922408733DC00010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3509D05711D275FD001826B9 /* Build configuration list for PBXNativeTarget "Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3509D05511D275FD001826B9 /* Debug */,
+				3509D05611D275FD001826B9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
