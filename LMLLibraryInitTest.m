@@ -1,5 +1,5 @@
 //
-//  LMLItemTest.m
+//  LMLLibraryInitTest.m
 //  lml
 //
 //  Created by Jeremy Gray on 10-06-23.
@@ -18,9 +18,9 @@
 	NSArray *items = NULL;
 	NSString *version = @"Version";
 	NSString *sourceType = @"sourceType";
-	LMLLibrary *library = [[LMLLibrary alloc] initWithItems:items
-													version:version
-												 sourceType:sourceType];
+	LMLLibrary *library = [[[LMLLibrary alloc] initWithItems:items
+													 version:version
+												  sourceType:sourceType] autorelease];
 	GHAssertNil(library, nil);
 }
 
@@ -28,9 +28,9 @@
 	NSArray *items = [NSArray array];
 	NSString *version = NULL;
 	NSString *sourceType = @"sourceType";
-	LMLLibrary *library = [[LMLLibrary alloc] initWithItems:items
-													version:version
-												 sourceType:sourceType];
+	LMLLibrary *library = [[[LMLLibrary alloc] initWithItems:items
+													 version:version
+												  sourceType:sourceType] autorelease];
 	GHAssertNil(library, nil);
 }
 
@@ -38,9 +38,9 @@
 	NSArray *items = [NSArray array];
 	NSString *version = @"";
 	NSString *sourceType = @"sourceType";
-	LMLLibrary *library = [[LMLLibrary alloc] initWithItems:items
-													version:version
-												 sourceType:sourceType];
+	LMLLibrary *library = [[[LMLLibrary alloc] initWithItems:items
+													 version:version
+												  sourceType:sourceType] autorelease];
 	GHAssertNil(library, nil);
 }
 
@@ -48,9 +48,9 @@
 	NSArray *items = [NSArray array];
 	NSString *version = @"Version";
 	NSString *sourceType = NULL;
-	LMLLibrary *library = [[LMLLibrary alloc] initWithItems:items
-													version:version
-												 sourceType:sourceType];
+	LMLLibrary *library = [[[LMLLibrary alloc] initWithItems:items
+													 version:version
+												  sourceType:sourceType] autorelease];
 	GHAssertNil(library, nil);
 }
 
@@ -58,9 +58,9 @@
 	NSArray *items = [NSArray array];
 	NSString *version = @"Version";
 	NSString *sourceType = @"";
-	LMLLibrary *library = [[LMLLibrary alloc] initWithItems:items
-													version:version
-												 sourceType:sourceType];
+	LMLLibrary *library = [[[LMLLibrary alloc] initWithItems:items
+													 version:version
+												  sourceType:sourceType] autorelease];
 	GHAssertNil(library, nil);
 }
 
@@ -68,9 +68,9 @@
 	NSArray *items = [NSArray array];
 	NSString *version = @"Version";
 	NSString *sourceType = @"sourceType";
-	LMLLibrary *library = [[LMLLibrary alloc] initWithItems:items
-													version:version
-												 sourceType:sourceType];
+	LMLLibrary *library = [[[LMLLibrary alloc] initWithItems:items
+													 version:version
+												  sourceType:sourceType] autorelease];
 	GHAssertNotNULL(library, nil);
 	
 	GHAssertNotNULL([library items], nil);
