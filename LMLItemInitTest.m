@@ -14,25 +14,25 @@
 
 @implementation LMLItemInitTest
 
-- (void)testInitWithAllNULLShouldReturnAnItemWithAllPropertiesNULL {
-	LMLItem *item = [[[LMLItem alloc] initWithArtist:NULL
-											   title:NULL
+- (void)testInitWithAllMissingShouldReturnAnItemWithAllPropertiesMissing {
+	LMLItem *item = [[[LMLItem alloc] initWithArtist:nil
+											   title:nil
 											  rating:NULL
-										   dateAdded:NULL
+										   dateAdded:nil
 										   playCount:NULL
-										  lastPlayed:NULL
-											   genre:NULL
-											location:NULL
+										  lastPlayed:nil
+											   genre:nil
+											location:nil
 											duration:NULL] autorelease];
-    GHAssertNotNULL(item, nil);
-	GHAssertNULL([item artist], nil);
-	GHAssertNULL([item title], nil);
+    GHAssertNotNil(item, nil);
+	GHAssertNil([item artist], nil);
+	GHAssertNil([item title], nil);
 	GHAssertNULL([item rating], nil);
-	GHAssertNULL([item dateAdded], nil);
+	GHAssertNil([item dateAdded], nil);
 	GHAssertNULL([item playCount], nil);
-	GHAssertNULL([item lastPlayed], nil);
-	GHAssertNULL([item genre], nil);
-	GHAssertNULL([item location], nil);
+	GHAssertNil([item lastPlayed], nil);
+	GHAssertNil([item genre], nil);
+	GHAssertNil([item location], nil);
 	GHAssertNULL([item duration], nil);
 }
 
@@ -57,32 +57,32 @@
 											location:location
 											duration:&duration] autorelease];
 	
-    GHAssertNotNULL(item, nil);
+    GHAssertNotNil(item, nil);
 	
-	GHAssertNotNULL([item artist], nil);
+	GHAssertNotNil([item artist], nil);
 	GHAssertEqualStrings(artist, [item artist], nil);
 	
-	GHAssertNotNULL([item title], nil);
+	GHAssertNotNil([item title], nil);
 	GHAssertEqualStrings(title, [item title], nil);
 	
 	double *itemRating = [item rating];
 	GHAssertNotNULL(itemRating, nil);
 	GHAssertEquals(rating, *itemRating, nil);
 	
-	GHAssertNotNULL([item dateAdded], nil);
+	GHAssertNotNil([item dateAdded], nil);
 	GHAssertEqualObjects(dateAdded, [item dateAdded], nil);
 	
 	int *itemPlayCount = [item playCount];
 	GHAssertNotNULL(itemPlayCount, nil);
 	GHAssertEquals(playCount, *itemPlayCount, nil);
 	
-	GHAssertNotNULL([item lastPlayed], nil);
+	GHAssertNotNil([item lastPlayed], nil);
 	GHAssertEqualObjects(lastPlayed, [item lastPlayed], nil);
 	
-	GHAssertNotNULL([item genre], nil);
+	GHAssertNotNil([item genre], nil);
 	GHAssertEqualStrings(genre, [item genre], nil);
 	
-	GHAssertNotNULL([item location], nil);
+	GHAssertNotNil([item location], nil);
 	GHAssertEqualStrings(location, [item location], nil);
 	
 	NSTimeInterval *itemDuration = [item duration];

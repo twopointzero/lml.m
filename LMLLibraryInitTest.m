@@ -14,8 +14,8 @@
 
 @implementation LMLLibraryInitTest
 
-- (void)testInitWithNullItemsShouldReturnNil {
-	NSArray *items = NULL;
+- (void)testInitWithNilItemsShouldReturnNil {
+	NSArray *items = nil;
 	NSString *version = @"Version";
 	NSString *sourceType = @"sourceType";
 	LMLLibrary *library = [[[LMLLibrary alloc] initWithItems:items
@@ -24,9 +24,9 @@
 	GHAssertNil(library, nil);
 }
 
-- (void)testInitWithNullVersionShouldReturnNil {
+- (void)testInitWithNilVersionShouldReturnNil {
 	NSArray *items = [NSArray array];
-	NSString *version = NULL;
+	NSString *version = nil;
 	NSString *sourceType = @"sourceType";
 	LMLLibrary *library = [[[LMLLibrary alloc] initWithItems:items
 													 version:version
@@ -44,10 +44,10 @@
 	GHAssertNil(library, nil);
 }
 
-- (void)testInitWithNullSourceTypeShouldReturnNil {
+- (void)testInitWithNilSourceTypeShouldReturnNil {
 	NSArray *items = [NSArray array];
 	NSString *version = @"Version";
-	NSString *sourceType = NULL;
+	NSString *sourceType = nil;
 	LMLLibrary *library = [[[LMLLibrary alloc] initWithItems:items
 													 version:version
 												  sourceType:sourceType] autorelease];
@@ -71,17 +71,17 @@
 	LMLLibrary *library = [[[LMLLibrary alloc] initWithItems:items
 													 version:version
 												  sourceType:sourceType] autorelease];
-	GHAssertNotNULL(library, nil);
+	GHAssertNotNil(library, nil);
 	
-	GHAssertNotNULL([library items], nil);
+	GHAssertNotNil([library items], nil);
 	GHAssertTrue(items == [library items], nil);
 	
 	NSString *libraryVersion = [library version];
-	GHAssertNotNULL(libraryVersion, nil);
+	GHAssertNotNil(libraryVersion, nil);
 	GHAssertEqualStrings(version, libraryVersion, nil);
 	
 	NSString *librarySourceType = [library sourceType];
-	GHAssertNotNULL(librarySourceType, nil);
+	GHAssertNotNil(librarySourceType, nil);
 	GHAssertEqualStrings(sourceType, librarySourceType, nil);
 }
 

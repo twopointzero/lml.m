@@ -33,11 +33,11 @@
 	if (![super init])
 		return nil;
 	
-	if (anArtist != NULL) {
+	if (anArtist != nil) {
 		[anArtist retain];
 		artist = anArtist;
 	}
-	if (aTitle != NULL) {
+	if (aTitle != nil) {
 		[aTitle retain];
 		title = aTitle;
 	}
@@ -45,7 +45,7 @@
 		ratingValue = *aRating;
 		rating = &ratingValue;
 	}
-	if (aDateAdded != NULL) {
+	if (aDateAdded != nil) {
 		[aDateAdded retain];
 		dateAdded = aDateAdded;
 	}
@@ -53,15 +53,15 @@
 		playCountValue = *aPlayCount;
 		playCount = &playCountValue;
 	}
-	if (aLastPlayed != NULL) {
+	if (aLastPlayed != nil) {
 		[aLastPlayed retain];
 		lastPlayed = aLastPlayed;
 	}
-	if (aGenre != NULL) {
+	if (aGenre != nil) {
 		[aGenre retain];
 		genre = aGenre;
 	}
-	if (aLocation != NULL) {
+	if (aLocation != nil) {
 		[aLocation retain];
 		location = aLocation;
 	}
@@ -76,37 +76,39 @@
 - (NSUInteger)hash {
 	NSUInteger hash = 0;
 	
-	if (artist != NULL)
+	if (artist != nil)
 		hash ^= [artist hash];
 	
-	if (dateAdded != NULL)
+	if (dateAdded != nil)
 		hash ^= [dateAdded hash];
 	
-    hash ^= (NSUInteger)durationValue;
+	if (duration != NULL)
+		hash ^= (NSUInteger)durationValue;
 	
-	if (genre != NULL)
+	if (genre != nil)
 		hash ^= [genre hash];
 	
-	if (lastPlayed != NULL)
+	if (lastPlayed != nil)
 		hash ^= [lastPlayed hash];
 	
-	if (location != NULL)
+	if (location != nil)
 		hash ^= [location hash];
 	
-	hash ^= (NSUInteger)playCountValue;
+	if (playCount != NULL)
+		hash ^= (NSUInteger)playCountValue;
 	
 	if (rating != NULL)
 		hash ^= (NSUInteger)ratingValue;
 	
-	if (title != NULL)
+	if (title != nil)
 		hash ^= [title hash];
 	
 	return hash;
 }
 
 - (BOOL)equalityOfString:(NSString *)value1 and:(NSString *)value2 {
-	return (value1 == NULL && value2 == NULL) ||
-	(value1 != NULL && value2 != NULL && [value1 isEqualToString:value2]);
+	return (value1 == nil && value2 == nil) ||
+	(value1 != nil && value2 != nil && [value1 isEqualToString:value2]);
 }
 
 - (BOOL)equalityOfOptionalDouble:(double *)value1 and:(double *)value2 {
@@ -115,8 +117,8 @@
 }
 
 - (BOOL)equalityOfDate:(NSDate *)value1 and:(NSDate *)value2 {
-	return (value1 == NULL && value2 == NULL) ||
-	(value1 != NULL && value2 != NULL && [value1 isEqualToDate:value2]);
+	return (value1 == nil && value2 == nil) ||
+	(value1 != nil && value2 != nil && [value1 isEqualToDate:value2]);
 }
 
 - (BOOL)equalityOfOptionalInt:(int *)value1 and:(int *)value2 {
@@ -130,7 +132,7 @@
 }
 
 - (BOOL)isEqual:(id)other {
-	if (other == NULL)
+	if (other == nil)
 		return NO;
 	if (other == self)
 		return YES;
@@ -170,17 +172,17 @@
 }
 
 - (void)dealloc {
-	if (artist != NULL)
+	if (artist != nil)
 		[artist release];
-	if (title != NULL)
+	if (title != nil)
 		[title release];
-	if (dateAdded != NULL)
+	if (dateAdded != nil)
 		[dateAdded release];
-	if (lastPlayed != NULL)
+	if (lastPlayed != nil)
 		[lastPlayed release];
-	if (genre != NULL)
+	if (genre != nil)
 		[genre release];
-	if (location != NULL)
+	if (location != nil)
 		[location release];
 	
 	[super dealloc];

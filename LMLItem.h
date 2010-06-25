@@ -6,8 +6,6 @@
 //  Copyright 2010 twopointzero Solutions. All rights reserved.
 //
 
-#import <Cocoa/Cocoa.h>
-
 
 @interface LMLItem : NSObject {
 	NSString *artist;

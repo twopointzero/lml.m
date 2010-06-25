@@ -15,16 +15,16 @@
 @implementation LMLItemEqualityTest
 
 - (LMLItem *)createUnpopulatedItem {
-	LMLItem *item = [[[LMLItem alloc] initWithArtist:NULL
-											   title:NULL
+	LMLItem *item = [[[LMLItem alloc] initWithArtist:nil
+											   title:nil
 											  rating:NULL
-										   dateAdded:NULL
+										   dateAdded:nil
 										   playCount:NULL
-										  lastPlayed:NULL
-											   genre:NULL
-											location:NULL
+										  lastPlayed:nil
+											   genre:nil
+											location:nil
 											duration:NULL] autorelease];
-    GHAssertNotNULL(item, nil);
+    GHAssertNotNil(item, nil);
 	
 	return item;
 }
@@ -48,7 +48,7 @@
 											   genre:genre
 											location:location
 											duration:&duration] autorelease];
-    GHAssertNotNULL(item, nil);
+    GHAssertNotNil(item, nil);
 	
 	[lastPlayed release];
 	
@@ -68,12 +68,12 @@
 	GHAssertFalse([item2 isEqual:item1], nil);
 }
 
-- (void)testInequalityOfTheUnpopulatedExampleAndNULL {
-	GHAssertFalse([[self createUnpopulatedItem] isEqual:NULL], nil);
+- (void)testInequalityOfTheUnpopulatedExampleAndNil {
+	GHAssertFalse([[self createUnpopulatedItem] isEqual:nil], nil);
 }
 
-- (void)testInequalityOfThePopulatedExampleAndNULL {
-	GHAssertFalse([[self createPopulatedItemWithDateAdded:[NSDate date]] isEqual:NULL], nil);
+- (void)testInequalityOfThePopulatedExampleAndNil {
+	GHAssertFalse([[self createPopulatedItemWithDateAdded:[NSDate date]] isEqual:nil], nil);
 }
 
 - (void)testInequalityOfTheUnpopulatedExampleAndANonLMLItem {
@@ -119,23 +119,23 @@
 			 locationIndex:(NSUInteger)locationIndex
 			 durationIndex:(NSUInteger)durationIndex {
 	
-	NSString *artist = artistIndex == 0 ? NULL : [artists objectAtIndex:artistIndex - 1];
+	NSString *artist = artistIndex == 0 ? nil : [artists objectAtIndex:artistIndex - 1];
 	
-	NSString *title = titleIndex == 0 ? NULL : [titles objectAtIndex:titleIndex - 1];
+	NSString *title = titleIndex == 0 ? nil : [titles objectAtIndex:titleIndex - 1];
 	
 	double ratingValue = ratingIndex == 0 ? 0 : [[ratings objectAtIndex:ratingIndex - 1] doubleValue];
 	double* rating = ratingIndex == 0 ? NULL : &ratingValue;
 	
-	NSDate *dateAdded = dateAddedIndex == 0 ? NULL : [datesAdded objectAtIndex:dateAddedIndex - 1];
+	NSDate *dateAdded = dateAddedIndex == 0 ? nil : [datesAdded objectAtIndex:dateAddedIndex - 1];
 	
 	int playCountValue = playCountIndex == 0 ? 0 : [[playCounts objectAtIndex:playCountIndex - 1] integerValue];
 	int* playCount = playCountIndex == 0 ? NULL : &playCountValue;
 	
-	NSDate *lastPlayed = lastPlayedIndex == 0 ? NULL : [lastPlayeds objectAtIndex:lastPlayedIndex - 1];
+	NSDate *lastPlayed = lastPlayedIndex == 0 ? nil : [lastPlayeds objectAtIndex:lastPlayedIndex - 1];
 	
-	NSString *genre = genreIndex == 0 ? NULL : [genres objectAtIndex:genreIndex - 1];
+	NSString *genre = genreIndex == 0 ? nil : [genres objectAtIndex:genreIndex - 1];
 	
-	NSString *location = locationIndex == 0 ? NULL : [locations objectAtIndex:locationIndex - 1];
+	NSString *location = locationIndex == 0 ? nil : [locations objectAtIndex:locationIndex - 1];
 	
 	NSTimeInterval durationValue = durationIndex == 0 ? 0 : [[durations objectAtIndex:durationIndex - 1] doubleValue];
 	NSTimeInterval* duration = durationIndex == 0 ? NULL : &durationValue;
@@ -150,14 +150,14 @@
 										   location:location
 										   duration:duration];
 	
-    GHAssertNotNULL(item, nil);
+    GHAssertNotNil(item, nil);
 	
 	return item;
 }
 
 - (BOOL)expectedEqualityOfString:(NSString *)value1 and:(NSString *)value2 {
-	return (value1 == NULL && value2 == NULL) ||
-	(value1 != NULL && value2 != NULL && [value1 isEqualToString:value2]);
+	return (value1 == nil && value2 == nil) ||
+	(value1 != nil && value2 != nil && [value1 isEqualToString:value2]);
 }
 
 - (BOOL)expectedEqualityOfOptionalDouble:(double *)value1 and:(double *)value2 {
@@ -166,8 +166,8 @@
 }
 
 - (BOOL)expectedEqualityOfDate:(NSDate *)value1 and:(NSDate *)value2 {
-	return (value1 == NULL && value2 == NULL) ||
-	(value1 != NULL && value2 != NULL && [value1 isEqualToDate:value2]);
+	return (value1 == nil && value2 == nil) ||
+	(value1 != nil && value2 != nil && [value1 isEqualToDate:value2]);
 }
 
 - (BOOL)expectedEqualityOfOptionalInt:(int *)value1 and:(int *)value2 {
@@ -292,8 +292,8 @@
 	//	To exhaustively test the equality behavior permutations across the LMLItem properties,
 	//	set both increments to 1. To test a subset, set the increments to neighbouring primes,
 	//	as in the case below which brings testPermutations under one second on my dev box.
-	int const outerIncrement = 37;
-	int const innerIncrement = 41;	
+	const int outerIncrement = 37;
+	const int innerIncrement = 41;
 	
 	NSArray *artists = [NSArray arrayWithObjects: @"Artist 1", @"Artist 2", nil];
 	NSArray *titles = [NSArray arrayWithObjects: @"Title 1", @"Title 2", nil];

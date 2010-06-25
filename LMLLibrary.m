@@ -21,7 +21,7 @@
 	if (![super init])
 		return nil;
 	
-	if (someItems == NULL || aVersion == NULL || aSourceType == NULL ||
+	if (someItems == nil || aVersion == nil || aSourceType == nil ||
 		[aVersion length] == 0 || [aSourceType length] == 0)
 	{
 		[self release];
