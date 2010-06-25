@@ -288,7 +288,13 @@
 	[item2 release];
 }
 
-- (void)__longRunning__testPermutations {
+- (void)testPermutations {
+	//	To exhaustively test the equality behavior permutations across the LMLItem properties,
+	//	set both increments to 1. To test a subset, set the increments to neighbouring primes,
+	//	as in the case below which brings testPermutations under one second on my dev box.
+	int const outerIncrement = 37;
+	int const innerIncrement = 41;	
+	
 	NSArray *artists = [NSArray arrayWithObjects: @"Artist 1", @"Artist 2", nil];
 	NSArray *titles = [NSArray arrayWithObjects: @"Title 1", @"Title 2", nil];
 	NSArray *ratings = [NSArray arrayWithObjects:
@@ -313,7 +319,7 @@
 	NSArray *durations = [NSArray arrayWithObjects: [NSNumber numberWithInt:4269], [NSNumber numberWithInt:6942], nil];
 	
 	// Nine dimensions * three choices each as two bits each = 18 bits
-	for (NSUInteger i = 0; i < (1 << 18); i++)
+	for (NSUInteger i = 0; i < (1 << 18); i += outerIncrement)
 	{
 		NSUInteger artist1Index = i & 3;
 		NSUInteger title1Index = (i >> 2) & 3;
@@ -335,7 +341,7 @@
 		if (i % 10 == 0)
 			NSLog(@"i: %d", i);
 		
-		for (NSUInteger j = 0; j < (1 << 18); j++)
+		for (NSUInteger j = 0; j < (1 << 18); j += innerIncrement)
 		{
 			NSUInteger artist2Index = j & 3;
 			NSUInteger title2Index = (j >> 2) & 3;
