@@ -20,6 +20,9 @@
 		3538E32E11D5045B00F60E84 /* LMLAppleITunesXmlImporterTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3538E32D11D5045B00F60E84 /* LMLAppleITunesXmlImporterTest.m */; };
 		3538E33F11D509E100F60E84 /* LMLAppleITunesXmlImporter.h in Headers */ = {isa = PBXBuildFile; fileRef = 3538E33D11D509E100F60E84 /* LMLAppleITunesXmlImporter.h */; };
 		3538E34011D509E100F60E84 /* LMLAppleITunesXmlImporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3538E33E11D509E100F60E84 /* LMLAppleITunesXmlImporter.m */; };
+		35800A7511D7E83200A3AF1D /* LMLXmlSerializerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 35800A7411D7E83200A3AF1D /* LMLXmlSerializerTest.m */; };
+		35800A7811D7E88100A3AF1D /* LMLXmlSerializer.h in Headers */ = {isa = PBXBuildFile; fileRef = 35800A7611D7E88100A3AF1D /* LMLXmlSerializer.h */; };
+		35800A7911D7E88100A3AF1D /* LMLXmlSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 35800A7711D7E88100A3AF1D /* LMLXmlSerializer.m */; };
 		35C4C08111D3CD23007B139A /* LMLItemEqualityTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 35C4C08011D3CD23007B139A /* LMLItemEqualityTest.m */; };
 		35D5619C11D5620E00AE17B6 /* LMLConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 35D5619B11D5620E00AE17B6 /* LMLConstants.h */; };
 		35D561E311D568D700AE17B6 /* LMLConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 35D561E211D568D700AE17B6 /* LMLConstants.m */; };
@@ -67,6 +70,9 @@
 		3538E32D11D5045B00F60E84 /* LMLAppleITunesXmlImporterTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMLAppleITunesXmlImporterTest.m; sourceTree = "<group>"; };
 		3538E33D11D509E100F60E84 /* LMLAppleITunesXmlImporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMLAppleITunesXmlImporter.h; sourceTree = "<group>"; };
 		3538E33E11D509E100F60E84 /* LMLAppleITunesXmlImporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMLAppleITunesXmlImporter.m; sourceTree = "<group>"; };
+		35800A7411D7E83200A3AF1D /* LMLXmlSerializerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMLXmlSerializerTest.m; sourceTree = "<group>"; };
+		35800A7611D7E88100A3AF1D /* LMLXmlSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMLXmlSerializer.h; sourceTree = "<group>"; };
+		35800A7711D7E88100A3AF1D /* LMLXmlSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMLXmlSerializer.m; sourceTree = "<group>"; };
 		35C4C08011D3CD23007B139A /* LMLItemEqualityTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMLItemEqualityTest.m; sourceTree = "<group>"; };
 		35CBC48F11D4FD7F0000C666 /* mac iTML 9_0_3 - simple names.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "mac iTML 9_0_3 - simple names.xml"; sourceTree = "<group>"; };
 		35CBC49011D4FD7F0000C666 /* mac iTML 9_1_1 - artist suffixes.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "mac iTML 9_1_1 - artist suffixes.xml"; sourceTree = "<group>"; };
@@ -175,6 +181,8 @@
 				3538E33E11D509E100F60E84 /* LMLAppleITunesXmlImporter.m */,
 				35D5619B11D5620E00AE17B6 /* LMLConstants.h */,
 				35D561E211D568D700AE17B6 /* LMLConstants.m */,
+				35800A7611D7E88100A3AF1D /* LMLXmlSerializer.h */,
+				35800A7711D7E88100A3AF1D /* LMLXmlSerializer.m */,
 			);
 			name = LML;
 			sourceTree = "<group>";
@@ -187,6 +195,7 @@
 				35C4C08011D3CD23007B139A /* LMLItemEqualityTest.m */,
 				3523491911D2BDB800BF3C5A /* LMLLibraryInitTest.m */,
 				3538E32D11D5045B00F60E84 /* LMLAppleITunesXmlImporterTest.m */,
+				35800A7411D7E83200A3AF1D /* LMLXmlSerializerTest.m */,
 			);
 			name = Tests;
 			sourceTree = "<group>";
@@ -211,6 +220,7 @@
 				3509D02C11D273B5001826B9 /* LMLItem.h in Headers */,
 				3538E33F11D509E100F60E84 /* LMLAppleITunesXmlImporter.h in Headers */,
 				35D5619C11D5620E00AE17B6 /* LMLConstants.h in Headers */,
+				35800A7811D7E88100A3AF1D /* LMLXmlSerializer.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,6 +302,7 @@
 				3509D17011D27AEA001826B9 /* LMLItemInitTest.m in Sources */,
 				35C4C08111D3CD23007B139A /* LMLItemEqualityTest.m in Sources */,
 				3538E32E11D5045B00F60E84 /* LMLAppleITunesXmlImporterTest.m in Sources */,
+				35800A7511D7E83200A3AF1D /* LMLXmlSerializerTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -303,6 +314,7 @@
 				3509D02D11D273B5001826B9 /* LMLItem.m in Sources */,
 				3538E34011D509E100F60E84 /* LMLAppleITunesXmlImporter.m in Sources */,
 				35D561E311D568D700AE17B6 /* LMLConstants.m in Sources */,
+				35800A7911D7E88100A3AF1D /* LMLXmlSerializer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
