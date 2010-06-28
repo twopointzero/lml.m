@@ -89,7 +89,7 @@
 	[self addAttributeIfNotNull:element
 				  attributeName:@"r"
 				  doublePointer:[item rating]
-				   formatString:@"0.0##"];
+				   formatString:@"0.###"];
 	
 	[self addAttributeIfNotNil:element attributeName:@"da" dateValue:[item dateAdded]];
 	
@@ -108,7 +108,7 @@
 	[self addAttributeIfNotNull:element
 				  attributeName:@"ds"
 				  doublePointer:[item duration]
-				   formatString:@"0.0##"];
+				   formatString:@"0.###"];
 	
 	return element;
 }

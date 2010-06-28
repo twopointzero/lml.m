@@ -116,6 +116,35 @@
 	[item release];
 }
 
+- (void)testElementFromItemWithIntegralRatingAndDurationShouldProduceExpectedResult {
+	double rating = 1.0;
+	int playCount = 69;
+	NSTimeInterval duration = 74;
+	LMLItem *item = [[LMLItem alloc] initWithArtist:@"Artist"
+											  title:@"Title"
+											 rating:&rating
+										  dateAdded:[NSDate dateWithString:@"2009-01-01 00:00:00 +0000"]
+										  playCount:&playCount
+										 lastPlayed:[NSDate dateWithString:@"2010-01-01 00:00:00 +0000"]
+											  genre:@"Genre"
+										   location:@"C:\\path\\file.ext"
+										   duration:&duration];
+	
+	NSXMLElement *expected = [self itemElementWith:@"Artist"
+											 title:@"Title"
+											rating:@"1"
+										 dateAdded:@"2009-01-01T00:00:00Z"
+										 playCount:@"69"
+										lastPlayed:@"2010-01-01T00:00:00Z"
+											 genre:@"Genre"
+										  location:@"C:\\path\\file.ext"
+										  duration:@"74"];
+	
+	[self assertEqualCanonicalXMLForSerializedItem:item andNode:expected];
+	
+	[item release];
+}
+
 - (void)testElementFromItemGivenItemWithEmptyPropertiesShouldProduceExpectedResult {
 	LMLItem *item = [[LMLItem alloc] initWithArtist:@""
 											  title:@""
@@ -204,7 +233,7 @@
 											 lastPlayed:@"2010-01-11T00:00:00Z"
 												  genre:@"Genre1"
 											   location:@"C:\\path\\file1.ext"
-											   duration:@"741.0"];
+											   duration:@"741"];
 	
 	NSXMLElement *expectedItem2 = [self itemElementWith:@"Artist2"
 												  title:@"Title2"
@@ -214,7 +243,7 @@
 											 lastPlayed:@"2010-01-12T00:00:00Z"
 												  genre:@"Genre2"
 											   location:@"C:\\path\\file2.ext"
-											   duration:@"742.0"];
+											   duration:@"742"];
 	
 	NSXMLElement *expectedItem3 = [self itemElementWith:@"Artist3"
 												  title:@"Title3"
@@ -224,7 +253,7 @@
 											 lastPlayed:@"2010-01-13T00:00:00Z"
 												  genre:@"Genre3"
 											   location:@"C:\\path\\file3.ext"
-											   duration:@"743.0"];
+											   duration:@"743"];
 	
 	NSArray *libraryAttributes = [NSArray arrayWithObjects:
 								  [NSXMLNode attributeWithName:@"v" stringValue:@"1.0"],
