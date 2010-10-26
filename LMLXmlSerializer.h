@@ -11,6 +11,8 @@
 #import "LMLLibrary.h"
 
 @interface LMLXmlSerializer : NSObject {
+	NSDateFormatter *dateFormatter;
+	NSNumberFormatter *numberFormatter;
 }
 
 - (NSXMLElement *)elementFromLibrary:(LMLLibrary *)library;

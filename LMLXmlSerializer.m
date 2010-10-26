@@ -11,23 +11,41 @@
 
 @implementation LMLXmlSerializer
 
+- (id)init {
+	if (![super init])
+		return nil;
+
+	dateFormatter = [[NSDateFormatter alloc] init];
+	[dateFormatter setFormatterBehavior:NSDateFormatterBehavior10_4];
+	[dateFormatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]];
+	[dateFormatter setDateFormat: @"yyyy-MM-dd'T'HH:mm:ss'Z'"];
+
+	numberFormatter = [[NSNumberFormatter alloc] init];
+	[numberFormatter setFormatterBehavior:NSNumberFormatterBehavior10_4];
+	[numberFormatter setFormat:@"0.###"];
+
+	return self;
+}
+
 - (NSXMLElement *)elementFromLibrary:(LMLLibrary *)library {
 	if (library == nil)
 		return nil;
-	
-	NSMutableArray *items = [NSMutableArray array];
-	
-	NSEnumerator *enumerator = [[library items] objectEnumerator];
+
+	NSArray *libraryItems = [library items];
+
+	NSMutableArray *items = [NSMutableArray arrayWithCapacity:[libraryItems count]];
+
+	NSEnumerator *enumerator = [libraryItems objectEnumerator];
 	LMLItem *item;
-	
+
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-	
+
 	while ((item = [enumerator nextObject])) {
 		[items addObject:[self elementFromItem:item]];
 	}
-	
+
 	[pool drain];
-		
+
 	NSArray *attributes = [NSArray arrayWithObjects:
 						   [NSXMLNode attributeWithName:@"v" stringValue:[library version]],
 						   [NSXMLNode attributeWithName:@"st" stringValue:[library sourceType]],
@@ -50,29 +68,19 @@
 	if (date == nil)
 		return;
 	
-	NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-	[dateFormatter setFormatterBehavior:NSDateFormatterBehavior10_4];
-	[dateFormatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]];
-	[dateFormatter setDateFormat: @"yyyy-MM-dd'T'HH:mm:ss'Z'"];
 	NSString *dateString = [dateFormatter stringFromDate: date];
-	[dateFormatter release];
 	
 	[element addAttribute:[NSXMLNode attributeWithName:attributeName stringValue:dateString]];
 }
 
 - (void)addAttributeIfNotNull:(NSXMLElement *)element
 				attributeName:(NSString *)attributeName
-				doublePointer:(double *)doublePointer
-				 formatString:(NSString *)formatString {
+				doublePointer:(double *)doublePointer {
 	if (doublePointer == NULL)
 		return;
 	
-	NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
-	[numberFormatter setFormatterBehavior:NSNumberFormatterBehavior10_4];
-	[numberFormatter setFormat:formatString];
 	NSNumber *number = [NSNumber numberWithDouble:*doublePointer];
 	NSString *stringValue = [numberFormatter stringFromNumber:number];
-	[numberFormatter release];
 	[element addAttribute:[NSXMLNode attributeWithName:attributeName stringValue:stringValue]];
 }
 
@@ -88,8 +96,7 @@
 	
 	[self addAttributeIfNotNull:element
 				  attributeName:@"r"
-				  doublePointer:[item rating]
-				   formatString:@"0.###"];
+				  doublePointer:[item rating]];
 	
 	[self addAttributeIfNotNil:element attributeName:@"da" dateValue:[item dateAdded]];
 	
@@ -107,10 +114,17 @@
 	
 	[self addAttributeIfNotNull:element
 				  attributeName:@"ds"
-				  doublePointer:[item duration]
-				   formatString:@"0.###"];
+				  doublePointer:[item duration]];
 	
 	return element;
+}
+
+- (void)dealloc
+{
+	[dateFormatter release];
+	[numberFormatter release];
+
+	[super dealloc];
 }
 
 @end
