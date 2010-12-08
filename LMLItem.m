@@ -11,7 +11,9 @@
 
 @implementation LMLItem
 
+@synthesize album;
 @synthesize artist;
+@synthesize bitsPerSecond;
 @synthesize dateAdded;
 @synthesize duration;
 @synthesize genre;
@@ -22,6 +24,7 @@
 @synthesize title;
 
 - (id)initWithArtist:(NSString *)anArtist
+			   album:(NSString *)anAlbum
 			   title:(NSString *)aTitle
 			  rating:(double *)aRating
 		   dateAdded:(NSDate *)aDateAdded
@@ -29,13 +32,18 @@
 		  lastPlayed:(NSDate *)aLastPlayed
 			   genre:(NSString *)aGenre
 			location:(NSString *)aLocation
-			duration:(NSTimeInterval *)aDuration {
+			duration:(NSTimeInterval *)aDuration
+	   bitsPerSecond:(int *)aBitsPerSecond {
 	if (![super init])
 		return nil;
 	
 	if (anArtist != nil) {
 		[anArtist retain];
 		artist = anArtist;
+	}
+	if (anAlbum != nil) {
+		[anAlbum retain];
+		album = anAlbum;
 	}
 	if (aTitle != nil) {
 		[aTitle retain];
@@ -69,6 +77,10 @@
 		durationValue = *aDuration;
 		duration = &durationValue;
 	}
+	if (aBitsPerSecond != NULL) {
+		bitsPerSecondValue = *aBitsPerSecond;
+		bitsPerSecond = &bitsPerSecondValue;
+	}
 	
 	return self;
 }
@@ -76,9 +88,15 @@
 - (NSUInteger)hash {
 	NSUInteger hash = 0;
 	
+	if (album != nil)
+		hash ^= [album hash];
+	
 	if (artist != nil)
 		hash ^= [artist hash];
-	
+
+	if (bitsPerSecond != NULL)
+		hash ^= (NSUInteger)bitsPerSecondValue;
+
 	if (dateAdded != nil)
 		hash ^= [dateAdded hash];
 	
@@ -144,6 +162,9 @@
 	if (![self equalityOfString:artist and:[otherItem artist]])
 		return NO;
 	
+	if (![self equalityOfString:album and:[otherItem album]])
+		return NO;
+
 	if (![self equalityOfString:title and:[otherItem title]])
 		return NO;
 	
@@ -167,6 +188,9 @@
 	
 	if (![self equalityOfOptionalTimeInterval:duration and:[otherItem duration]])
 		return NO;
+
+	if (![self equalityOfOptionalInt:bitsPerSecond and:[otherItem bitsPerSecond]])
+		return NO;
 	
 	return YES;
 }
@@ -174,6 +198,8 @@
 - (void)dealloc {
 	if (artist != nil)
 		[artist release];
+	if (album != nil)
+		[album release];
 	if (title != nil)
 		[title release];
 	if (dateAdded != nil)

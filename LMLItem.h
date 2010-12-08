@@ -8,7 +8,10 @@
 
 
 @interface LMLItem : NSObject {
+	NSString *album;
 	NSString *artist;
+	int *bitsPerSecond;
+	int bitsPerSecondValue;
 	NSDate *dateAdded;
 	NSTimeInterval *duration;
 	NSTimeInterval durationValue;
@@ -22,7 +25,9 @@
 	NSString *title;
 }
 
+@property(readonly) NSString *album;
 @property(readonly) NSString *artist;
+@property(readonly) int *bitsPerSecond;
 @property(readonly) NSDate *dateAdded;
 @property(readonly) NSTimeInterval *duration;
 @property(readonly) NSString *genre;
@@ -33,6 +38,7 @@
 @property(readonly) NSString *title;
 
 - (id)initWithArtist:(NSString *)anArtist
+			   album:(NSString *)anAlbum
 			   title:(NSString *)aTitle
 			  rating:(double *)aRating
 		   dateAdded:(NSDate *)aDateAdded
@@ -40,6 +46,7 @@
 		  lastPlayed:(NSDate *)aLastPlayed
 			   genre:(NSString *)aGenre
 			location:(NSString *)aLocation
-			duration:(NSTimeInterval *)aDuration;
+			duration:(NSTimeInterval *)aDuration
+	   bitsPerSecond:(int *)aBitsPerSecond;
 
 @end

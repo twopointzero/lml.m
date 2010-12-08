@@ -91,6 +91,8 @@
 	NSXMLElement *element = [NSXMLNode elementWithName:@"i"];
 	
 	[self addAttributeIfNotNilOrEmpty:element attributeName:@"a" stringValue:[item artist]];
+
+	[self addAttributeIfNotNilOrEmpty:element attributeName:@"al" stringValue:[item album]];
 	
 	[self addAttributeIfNotNilOrEmpty:element attributeName:@"t" stringValue:[item title]];
 	
@@ -115,6 +117,12 @@
 	[self addAttributeIfNotNull:element
 				  attributeName:@"ds"
 				  doublePointer:[item duration]];
+	
+	if ([item bitsPerSecond] != NULL) {
+		int bitsPerSecond = *[item bitsPerSecond];
+		NSString *bitsPerSecondString = [NSString stringWithFormat:@"%d", bitsPerSecond];
+		[element addAttribute:[NSXMLNode attributeWithName:@"bps" stringValue:bitsPerSecondString]];
+	}
 	
 	return element;
 }

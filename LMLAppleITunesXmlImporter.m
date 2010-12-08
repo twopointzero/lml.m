@@ -43,7 +43,9 @@
 
 - (LMLItem *)importTrack:(NSDictionary *)track {
 	NSString *artist = [track objectForKey:@"Artist"];
-	
+
+	NSString *album = [track objectForKey:@"Album"];
+
 	NSString *title = [self prepareTitle:[track objectForKey:@"Name"] withArtist:artist];
 	
 	double ratingValue = 0;
@@ -78,7 +80,16 @@
 		duration = &durationValue;
 	}
 	
+	int bitsPerSecondValue = 0;
+	int *bitsPerSecond = NULL;
+	id bitsPerSecondId = [track objectForKey:@"Bit Rate"];
+	if (bitsPerSecondId != nil) {
+		bitsPerSecondValue = [bitsPerSecondId intValue] * 1000;
+		bitsPerSecond = &bitsPerSecondValue;
+	}
+	
 	LMLItem *item = [[LMLItem alloc] initWithArtist:artist
+											  album:album
 											  title:title
 											 rating:rating
 										  dateAdded:dateAdded
@@ -86,7 +97,8 @@
 										 lastPlayed:lastPlayed
 											  genre:genre
 										   location:location
-										   duration:duration];
+										   duration:duration
+									  bitsPerSecond:bitsPerSecond];
 	return [item autorelease];
 }
 
@@ -150,7 +162,7 @@
 	[self importTracks:tracks into:items];
 	
 	LMLLibrary *library = [[LMLLibrary alloc] initWithItems:items
-													version:@"1.0"
+													version:@"1.1"
 												 sourceType:sourceType];
 	
 	[items release];

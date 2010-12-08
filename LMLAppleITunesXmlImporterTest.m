@@ -49,6 +49,7 @@
 
 - (void)assertExpectedItemIn:(NSArray *)items
 					  artist:(NSString *)artist
+					   album:(NSString *)album
 					   title:(NSString *)title
 					  rating:(double *)rating
 				   dateAdded:(NSDate *)dateAdded
@@ -56,8 +57,10 @@
 				  lastPlayed:(NSDate *)lastPlayed
 					   genre:(NSString *)genre
 					location:(NSString *)location
-					duration:(NSTimeInterval)duration {
+					duration:(NSTimeInterval)duration
+			   bitsPerSecond:(int *)bitsPerSecond {
 	LMLItem *item = [[LMLItem alloc] initWithArtist:artist
+											  album:album
 											  title:title
 											 rating:rating
 										  dateAdded:dateAdded
@@ -65,14 +68,17 @@
 										 lastPlayed:lastPlayed
 											  genre:genre
 										   location:location
-										   duration:&duration];
+										   duration:&duration
+									  bitsPerSecond:bitsPerSecond];
 	GHAssertTrue([items containsObject:item], @"Expected: %@ - %@", [item artist], [item title]);
 	[item release];
 }
 
 - (void)assertExpectedItems:(NSArray *)items {
+	int bitsPerSecond = 262000;
 	[self assertExpectedItemIn:items
 						artist:@"Nine Inch Nails"
+						 album:@"The Slip"
 						 title:@"999,999"
 						rating:NULL
 					 dateAdded:[NSDate dateWithString:@"2010-03-23 19:56:22 +0000"]
@@ -80,11 +86,14 @@
 					lastPlayed:nil
 						 genre:nil
 					  location:@"file://localhost/Users/jeremygray/Music/iTunes/iTunes%20Media/Music/Nine%20Inch%20Nails/The%20Slip/1-01%20999,999.m4a"
-					  duration:85159 / 1000.0];
+					  duration:85159 / 1000.0
+				 bitsPerSecond:&bitsPerSecond];
 	
 	double rating = 1;
+	bitsPerSecond = 295000;
 	[self assertExpectedItemIn:items
 						artist:@"Depeche Mode"
+						 album:@"Construction Time Again"
 						 title:@"Love, In Itself"
 						rating:&rating
 					 dateAdded:[NSDate dateWithString:@"2010-03-23 19:56:22 +0000"]
@@ -92,10 +101,13 @@
 					lastPlayed:nil
 						 genre:nil
 					  location:@"file://localhost/Users/jeremygray/Music/iTunes/iTunes%20Media/Music/Depeche%20Mode/Construction%20Time%20Again/01%20Love,%20In%20Itself.m4a"
-					  duration:269840 / 1000.0];
+					  duration:269840 / 1000.0
+				 bitsPerSecond:&bitsPerSecond];
 	
+	bitsPerSecond = 327000;
 	[self assertExpectedItemIn:items
 						artist:@"Vitalic"
+						 album:@"Flashmob"
 						 title:@"See The Sea (Red)"
 						rating:NULL
 					 dateAdded:[NSDate dateWithString:@"2010-03-23 19:56:22 +0000"]
@@ -103,10 +115,13 @@
 					lastPlayed:nil
 						 genre:@"Electro"
 					  location:@"file://localhost/Users/jeremygray/Music/iTunes/iTunes%20Media/Music/Vitalic/Flashmob/01%20See%20The%20Sea%20(Red).m4a"
-					  duration:244666 / 1000.0];
+					  duration:244666 / 1000.0
+				 bitsPerSecond:&bitsPerSecond];
 	
+	bitsPerSecond = 318000;
 	[self assertExpectedItemIn:items
 						artist:@"Nine Inch Nails"
+						 album:@"The Slip"
 						 title:@"1,000,000"
 						rating:NULL
 					 dateAdded:[NSDate dateWithString:@"2010-03-23 19:56:22 +0000"]
@@ -114,10 +129,13 @@
 					lastPlayed:nil
 						 genre:nil
 					  location:@"file://localhost/Users/jeremygray/Music/iTunes/iTunes%20Media/Music/Nine%20Inch%20Nails/The%20Slip/1-02%201,000,000.m4a"
-					  duration:236197 / 1000.0];
+					  duration:236197 / 1000.0
+				 bitsPerSecond:&bitsPerSecond];
 	
+	bitsPerSecond = 310000;
 	[self assertExpectedItemIn:items
 						artist:@"Depeche Mode"
+						 album:@"Construction Time Again"
 						 title:@"More Than A Party"
 						rating:NULL
 					 dateAdded:[NSDate dateWithString:@"2010-03-23 19:56:22 +0000"]
@@ -125,11 +143,14 @@
 					lastPlayed:nil
 						 genre:nil
 					  location:@"file://localhost/Users/jeremygray/Music/iTunes/iTunes%20Media/Music/Depeche%20Mode/Construction%20Time%20Again/02%20More%20Than%20A%20Party.m4a"
-					  duration:285453 / 1000.0];
+					  duration:285453 / 1000.0
+				 bitsPerSecond:&bitsPerSecond];
 	
 	int playCount = 1;
+	bitsPerSecond = 336000;
 	[self assertExpectedItemIn:items
 						artist:@"Vitalic"
+						 album:@"Flashmob"
 						 title:@"Poison Lips"
 						rating:NULL
 					 dateAdded:[NSDate dateWithString:@"2010-03-23 19:56:22 +0000"]
@@ -137,7 +158,8 @@
 					lastPlayed:[NSDate dateWithString:@"2010-03-23 20:54:50 +0000"]
 						 genre:@"Electro"
 					  location:@"file://localhost/Users/jeremygray/Music/iTunes/iTunes%20Media/Music/Vitalic/Flashmob/02%20Poison%20Lips.m4a"
-					  duration:232240 / 1000.0];
+					  duration:232240 / 1000.0
+				 bitsPerSecond:&bitsPerSecond];
 }
 
 static NSString *fileName_9_0_3 = @"../../mac iTML 9_0_3 - simple names.xml";
@@ -163,7 +185,7 @@ static NSString *fileName_9_0_3 = @"../../mac iTML 9_0_3 - simple names.xml";
 	LMLLibrary *library = [self import:fileName_9_0_3 error:&error];
 	
 	GHAssertNil(error, nil);
-	GHAssertEqualStrings(@"1.0", [library version], nil);
+	GHAssertEqualStrings(@"1.1", [library version], nil);
 }
 
 - (void)testGivenTheMac_9_0_3_FileShouldProduceTheExpectedNumberOfItems {
@@ -197,7 +219,7 @@ static NSString *fileName_9_1_1 = @"../../mac iTML 9_1_1 - artist suffixes.xml";
 	LMLLibrary *library = [self import:fileName_9_1_1 error:&error];
 	
 	GHAssertNil(error, nil);
-	GHAssertEqualStrings(@"1.0", [library version], nil);
+	GHAssertEqualStrings(@"1.1", [library version], nil);
 }
 
 - (void)testGivenTheMac_9_1_1_FileShouldProduceTheExpectedNumberOfItems {

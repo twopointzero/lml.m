@@ -16,6 +16,7 @@
 
 - (void)testInitWithAllMissingShouldReturnAnItemWithAllPropertiesMissing {
 	LMLItem *item = [[[LMLItem alloc] initWithArtist:nil
+											   album:nil
 											   title:nil
 											  rating:NULL
 										   dateAdded:nil
@@ -23,9 +24,11 @@
 										  lastPlayed:nil
 											   genre:nil
 											location:nil
-											duration:NULL] autorelease];
+											duration:NULL
+									   bitsPerSecond:NULL] autorelease];
     GHAssertNotNil(item, nil);
 	GHAssertNil([item artist], nil);
+	GHAssertNil([item album], nil);
 	GHAssertNil([item title], nil);
 	GHAssertNULL([item rating], nil);
 	GHAssertNil([item dateAdded], nil);
@@ -34,10 +37,12 @@
 	GHAssertNil([item genre], nil);
 	GHAssertNil([item location], nil);
 	GHAssertNULL([item duration], nil);
+	GHAssertNULL([item bitsPerSecond], nil);
 }
 
 - (void)testInitWithAllValuesShouldReturnAnItemWithAllExpectedPropertyValues {
 	NSString *artist = @"Artist";
+	NSString *album = @"Album";
 	NSString *title = @"Title";
 	double rating = 0.42;
 	NSDate *dateAdded = [NSDate date];
@@ -46,8 +51,10 @@
 	NSString *genre = @"Genre";
 	NSString *location = @"Location";
 	NSTimeInterval duration = 14269;
+	int bitsPerSecond = 324269;
 	
 	LMLItem *item = [[[LMLItem alloc] initWithArtist:artist
+											   album:album
 											   title:title
 											  rating:&rating
 										   dateAdded:dateAdded
@@ -55,13 +62,17 @@
 										  lastPlayed:lastPlayed
 											   genre:genre
 											location:location
-											duration:&duration] autorelease];
+											duration:&duration
+									   bitsPerSecond:&bitsPerSecond] autorelease];
 	
     GHAssertNotNil(item, nil);
 	
 	GHAssertNotNil([item artist], nil);
 	GHAssertEqualStrings(artist, [item artist], nil);
-	
+
+	GHAssertNotNil([item album], nil);
+	GHAssertEqualStrings(album, [item album], nil);
+
 	GHAssertNotNil([item title], nil);
 	GHAssertEqualStrings(title, [item title], nil);
 	
@@ -88,6 +99,11 @@
 	NSTimeInterval *itemDuration = [item duration];
 	GHAssertNotNULL(itemDuration, nil);
 	GHAssertEquals(duration, *itemDuration, nil);
+	
+	int *itemBitsPerSecond = [item bitsPerSecond];
+	GHAssertNotNULL(itemBitsPerSecond, nil);
+	GHAssertEquals(bitsPerSecond, *itemBitsPerSecond, nil);
+
 }
 
 @end
